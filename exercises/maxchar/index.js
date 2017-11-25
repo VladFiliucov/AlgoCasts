@@ -6,15 +6,14 @@
 // maxChar("apple 1231111") === "1"
 
 function maxChar(str) {
-  const arr = [...str]
-  const obj = arr.reduce((acc, el) => {
+  let max = 0;
+  let winner = '';
+
+  const obj = [...str].reduce((acc, el) => {
     const element = acc[el] ? (acc[el] + 1) : 1
 
     return Object.assign(acc, {[el]: element})
   } , {})
-
-  let max = 0;
-  let winner = '';
 
   for (let prop in obj) {
     if (obj[prop] > max) {
